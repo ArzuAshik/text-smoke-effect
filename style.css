@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    font-family: Roboto;
+    font-size: 3rem;
+}
+p{
+    user-select: none;
+    color: #fff;
+    margin: 0 150px;
+    cursor: grab;
+}
+p span{
+    display: inline-block;
+    user-select: none;
+    z-index: 9999;
+    /* font-weight: bold; */
+    /* letter-spacing: 2px; */
+}
+p span.active{
+    z-index: 2;
+    pointer-events: none;
+    animation: smoke 4s linear forwards 0s;
+}
+
+@keyframes smoke{
+    0%{
+        opacity: 0.99;
+        filter: blur(2px);
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    50%{
+        opacity: 0.90;
+        pointer-events: none;
+    }
+    100%{
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(300px) translateY(300px) rotate(360deg) scale(4);
+    }
+}
